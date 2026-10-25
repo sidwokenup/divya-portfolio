@@ -1,0 +1,2260 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Divya Parashar | Talent Acquisition & People Operations</title>
+  <meta name="description" content="Divya Parashar — HR, Talent Acquisition and People Operations professional specializing in domestic and U.S. recruitment, candidate experience, and onboarding.">
+  <meta name="author" content="Divya Parashar">
+  <meta name="theme-color" content="#0d6e64">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='25' fill='%230d6e64'/><text x='50%' y='63%' font-family='serif' font-size='55' font-weight='bold' fill='white' text-anchor='middle'>D</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+  <style>
+    /* ==========================================================================
+       CSS VARIABLES & THEME TOKENS
+       ========================================================================== */
+    :root {
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-heading: 'Outfit', var(--font-sans);
+
+      /* Light Theme (Default: Warm Ivory & Luxury Deep Emerald/Teal) */
+      --bg: #faf9f5;
+      --bg-alt: #f3f1ea;
+      --surface: #ffffff;
+      --surface-glass: rgba(255, 255, 255, 0.78);
+      --surface-card: rgba(255, 255, 255, 0.9);
+      --border: rgba(26, 46, 42, 0.1);
+      --border-highlight: rgba(13, 110, 100, 0.25);
+      
+      --ink: #111e22;
+      --ink-muted: #536467;
+      --ink-light: #7c8e91;
+      
+      --primary: #0d6e64;
+      --primary-hover: #095049;
+      --primary-light: #e8f4f2;
+      --primary-glow: rgba(13, 110, 100, 0.35);
+      
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --lime: #dceacb;
+      --lime-soft: rgba(220, 234, 203, 0.45);
+      
+      --card-shadow: 0 10px 30px -10px rgba(17, 30, 34, 0.07), 0 4px 12px -2px rgba(17, 30, 34, 0.04);
+      --card-shadow-hover: 0 20px 40px -15px rgba(13, 110, 100, 0.18), 0 0 0 1px rgba(13, 110, 100, 0.25);
+      --header-bg: rgba(250, 249, 245, 0.82);
+      --code-bg: #111e22;
+      --spotlight-color: rgba(13, 110, 100, 0.08);
+    }
+
+    [data-theme="dark"] {
+      --bg: #090e11;
+      --bg-alt: #0e161a;
+      --surface: #121c21;
+      --surface-glass: rgba(18, 28, 33, 0.75);
+      --surface-card: rgba(18, 28, 33, 0.85);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-highlight: rgba(20, 184, 166, 0.35);
+      
+      --ink: #f1f5f9;
+      --ink-muted: #94a3b8;
+      --ink-light: #64748b;
+      
+      --primary: #14b8a6;
+      --primary-hover: #2dd4bf;
+      --primary-light: rgba(20, 184, 166, 0.15);
+      --primary-glow: rgba(20, 184, 166, 0.4);
+      
+      --accent: #fbbf24;
+      --accent-light: rgba(251, 191, 36, 0.15);
+      --lime: #1f3b35;
+      --lime-soft: rgba(20, 184, 166, 0.12);
+      
+      --card-shadow: 0 14px 34px -10px rgba(0, 0, 0, 0.5);
+      --card-shadow-hover: 0 22px 48px -12px rgba(20, 184, 166, 0.25), 0 0 0 1px rgba(20, 184, 166, 0.4);
+      --header-bg: rgba(9, 14, 17, 0.82);
+      --spotlight-color: rgba(20, 184, 166, 0.12);
+    }
+
+    /* ==========================================================================
+       RESET & BASE STYLES
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.65;
+      overflow-x: hidden;
+      transition: background-color 0.35s ease, color 0.35s ease;
+      position: relative;
+    }
+
+    /* Scroll progress bar */
+    #scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      width: 0%;
+      z-index: 1000;
+      transition: width 0.1s ease-out;
+    }
+
+    /* Ambient Background Orbs */
+    .ambient-glow {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .glow-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.55;
+      animation: floatOrb 22s infinite ease-in-out alternate;
+    }
+
+    .orb-1 {
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle, var(--primary-light), transparent 70%);
+      top: -100px;
+      right: -80px;
+      animation-duration: 20s;
+    }
+
+    .orb-2 {
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, var(--lime-soft), transparent 70%);
+      top: 35%;
+      left: -120px;
+      animation-duration: 26s;
+      animation-delay: -5s;
+    }
+
+    .orb-3 {
+      width: 380px;
+      height: 380px;
+      background: radial-gradient(circle, var(--accent-light), transparent 70%);
+      bottom: 10%;
+      right: 5%;
+      animation-duration: 24s;
+      animation-delay: -10s;
+      opacity: 0.35;
+    }
+
+    @keyframes floatOrb {
+      0% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(40px, 60px) scale(1.08); }
+      100% { transform: translate(-30px, 30px) scale(0.94); }
+    }
+
+    .wrap {
+      width: min(1140px, calc(100% - 48px));
+      margin-inline: auto;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* ==========================================================================
+       NAVIGATION BAR
+       ========================================================================== */
+    .nav-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      background-color: var(--header-bg);
+      border-bottom: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-avatar-mini {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 46%;
+      border: 2px solid var(--primary);
+      box-shadow: 0 0 12px var(--primary-glow);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+
+    .brand-tag {
+      font-size: 0.72rem;
+      color: var(--primary);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-link {
+      font-size: 0.94rem;
+      font-weight: 500;
+      color: var(--ink-muted);
+      position: relative;
+      padding: 6px 0;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--ink);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.25s ease;
+      border-radius: 2px;
+    }
+
+    .nav-link:hover::after, .nav-link.active::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .theme-toggle {
+      background: var(--surface-glass);
+      border: 1px solid var(--border);
+      color: var(--ink);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: all 0.2s ease;
+      box-shadow: var(--card-shadow);
+    }
+
+    .theme-toggle:hover {
+      transform: translateY(-2px);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .cta-btn {
+      background: linear-gradient(135deg, var(--primary), #0a524a);
+      color: #ffffff !important;
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      box-shadow: 0 4px 14px var(--primary-glow);
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    [data-theme="dark"] .cta-btn {
+      background: linear-gradient(135deg, var(--primary), #0f766e);
+      color: #090e11 !important;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px var(--primary-glow);
+      filter: brightness(1.08);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--ink);
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    /* ==========================================================================
+       HERO SECTION (FEATURING THE PORTRAIT)
+       ========================================================================== */
+    .hero-section {
+      padding: 72px 0 84px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--surface-glass);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      padding: 7px 16px;
+      border-radius: 40px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--ink-muted);
+      margin-bottom: 24px;
+      box-shadow: var(--card-shadow);
+    }
+
+    .pulse-dot {
+      width: 9px;
+      height: 9px;
+      background-color: #10b981;
+      border-radius: 50%;
+      position: relative;
+    }
+
+    .pulse-dot::after {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      background-color: #10b981;
+      opacity: 0.7;
+      animation: pulseAnim 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+
+    @keyframes pulseAnim {
+      0% { transform: scale(0.9); opacity: 0.8; }
+      50% { transform: scale(2.2); opacity: 0; }
+      100% { transform: scale(0.9); opacity: 0; }
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 5.2vw, 4.4rem);
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 22px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--primary) 20%, #0284c7 80%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-style: italic;
+    }
+
+    [data-theme="dark"] .gradient-text {
+      background: linear-gradient(135deg, var(--primary) 20%, #38bdf8 80%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-lead {
+      font-size: 1.15rem;
+      line-height: 1.68;
+      color: var(--ink-muted);
+      max-width: 580px;
+      margin-bottom: 32px;
+    }
+
+    .hero-highlights {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 34px;
+    }
+
+    .highlight-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 14px;
+      border-radius: 30px;
+      background: var(--surface-glass);
+      border: 1px solid var(--border);
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--ink);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+
+    .highlight-pill span.icon {
+      color: var(--primary);
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 26px;
+      border-radius: 50px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 6px 20px var(--primary-glow);
+    }
+
+    [data-theme="dark"] .btn-primary {
+      background: var(--primary);
+      color: #090e11;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px var(--primary-glow);
+    }
+
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--ink);
+      border-color: var(--border);
+      box-shadow: var(--card-shadow);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .btn-copy-email {
+      background: transparent;
+      color: var(--ink-muted);
+      border: 1px dashed var(--border);
+      padding: 12px 20px;
+    }
+
+    .btn-copy-email:hover {
+      color: var(--ink);
+      border-color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .meta-location {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 0.88rem;
+      color: var(--ink-light);
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ==========================================================================
+       HERO SHOWCASE / PORTRAIT CARD (MAX PRO UI STYLING)
+       ========================================================================== */
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      perspective: 1200px;
+    }
+
+    .portrait-card-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 420px;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Ambient backdrop glow behind photo */
+    .portrait-card-wrapper::before {
+      content: '';
+      position: absolute;
+      inset: 8% 8% -4% -4%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: 36px;
+      filter: blur(34px);
+      opacity: 0.45;
+      z-index: 0;
+      transition: opacity 0.4s ease, filter 0.4s ease;
+    }
+
+    .portrait-card-wrapper:hover::before {
+      opacity: 0.65;
+      filter: blur(42px);
+    }
+
+    .portrait-frame {
+      position: relative;
+      z-index: 1;
+      border-radius: 32px;
+      background: var(--surface);
+      padding: 10px;
+      border: 1px solid var(--border-highlight);
+      box-shadow: 0 25px 60px -15px rgba(13, 110, 100, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.2);
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .portrait-img-box {
+      width: 100%;
+      height: 520px;
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+      background-color: #0c1a1f;
+    }
+
+    .hero-portrait {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 47%;
+      transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+    }
+
+    .portrait-card-wrapper:hover .hero-portrait {
+      transform: scale(1.035);
+    }
+
+    /* Elegant glass overlay inside frame */
+    .portrait-glass-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(0,0,0,0) 60%,
+        rgba(9, 14, 17, 0.85) 100%
+      );
+      pointer-events: none;
+      border-radius: 24px;
+    }
+
+    .portrait-badge-bottom {
+      position: absolute;
+      bottom: 22px;
+      left: 20px;
+      right: 20px;
+      color: #ffffff;
+      z-index: 2;
+    }
+
+    .portrait-badge-name {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+
+    .portrait-badge-role {
+      font-size: 0.82rem;
+      color: #a7f3d0;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    /* Floating badges around the portrait */
+    .floating-card {
+      position: absolute;
+      z-index: 3;
+      background: var(--surface-glass);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-highlight);
+      border-radius: 18px;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.18);
+      animation: floatBadge 6s ease-in-out infinite alternate;
+      pointer-events: auto;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .floating-card:hover {
+      transform: translateY(-5px) scale(1.03);
+      box-shadow: 0 20px 42px -6px var(--primary-glow);
+    }
+
+    .floating-card-1 {
+      top: 30px;
+      left: -28px;
+      animation-duration: 5.5s;
+    }
+
+    .floating-card-2 {
+      bottom: 50px;
+      right: -24px;
+      animation-duration: 6.8s;
+      animation-delay: -2s;
+    }
+
+    @keyframes floatBadge {
+      0% { transform: translateY(0px); }
+      100% { transform: translateY(-12px); }
+    }
+
+    .f-icon-box {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .f-icon-green {
+      background: var(--primary-light);
+      color: var(--primary);
+    }
+
+    .f-icon-amber {
+      background: var(--accent-light);
+      color: var(--accent);
+    }
+
+    .f-content h4 {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+
+    .f-content p {
+      font-size: 0.76rem;
+      color: var(--ink-muted);
+      margin-top: 2px;
+    }
+
+    /* Expand button on photo */
+    .expand-photo-btn {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: white;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+      z-index: 2;
+    }
+
+    .expand-photo-btn:hover {
+      background: var(--primary);
+      transform: scale(1.1);
+    }
+
+    /* ==========================================================================
+       SECTION COMMON STYLES
+       ========================================================================== */
+    .section {
+      padding: 88px 0;
+      position: relative;
+    }
+
+    .section-border-top {
+      border-top: 1px solid var(--border);
+    }
+
+    .section-header {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 40px;
+      margin-bottom: 48px;
+      align-items: flex-end;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--primary);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .kicker::before {
+      content: "✦";
+      font-size: 0.9rem;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      line-height: 1.1;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+    }
+
+    .section-intro {
+      font-size: 1.08rem;
+      line-height: 1.7;
+      color: var(--ink-muted);
+    }
+
+    /* ==========================================================================
+       SPOTLIGHT CARDS (UI MAX PRO EFFECT)
+       ========================================================================== */
+    .spotlight-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .spotlight-card {
+      position: relative;
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 32px;
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease, border-color 0.28s ease;
+    }
+
+    .spotlight-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--card-shadow-hover);
+      border-color: var(--border-highlight);
+    }
+
+    /* Mouse tracking spotlight effect */
+    .spotlight-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        var(--spotlight-color),
+        transparent 70%
+      );
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .spotlight-card:hover::before {
+      opacity: 1;
+    }
+
+    .card-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .stat-badge {
+      font-family: var(--font-display);
+      font-size: 2.1rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 10px;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .stat-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .stat-desc {
+      font-size: 0.94rem;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       EXPERIENCE TIMELINE
+       ========================================================================== */
+    .timeline-container {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .experience-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 34px;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 36px;
+      box-shadow: var(--card-shadow);
+      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .experience-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--card-shadow-hover);
+      border-color: var(--border-highlight);
+    }
+
+    .exp-period {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .exp-date {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .exp-type {
+      font-size: 0.82rem;
+      color: var(--ink-light);
+      font-weight: 500;
+    }
+
+    .active-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      background: var(--primary-light);
+      color: var(--primary);
+      width: fit-content;
+      margin-top: 4px;
+    }
+
+    .exp-role-title {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 4px;
+      letter-spacing: -0.01em;
+    }
+
+    .exp-company {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink-muted);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .exp-list {
+      padding-left: 20px;
+      color: var(--ink);
+      font-size: 0.95rem;
+      line-height: 1.68;
+    }
+
+    .exp-list li {
+      margin-bottom: 10px;
+      color: var(--ink-muted);
+    }
+
+    .exp-list li::marker {
+      color: var(--primary);
+    }
+
+    .exp-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .exp-tag {
+      background: var(--surface-glass);
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--ink-muted);
+    }
+
+    /* ==========================================================================
+       SKILLS & TOOLS SECTION (INTERACTIVE FILTER TABS)
+       ========================================================================== */
+    .skills-filter-nav {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .filter-tab {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--ink-muted);
+      padding: 8px 18px;
+      border-radius: 30px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .filter-tab:hover, .filter-tab.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+      box-shadow: 0 4px 12px var(--primary-glow);
+    }
+
+    [data-theme="dark"] .filter-tab:hover, [data-theme="dark"] .filter-tab.active {
+      color: #090e11;
+    }
+
+    .skills-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .skill-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 30px;
+      box-shadow: var(--card-shadow);
+      transition: all 0.28s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--card-shadow-hover);
+      border-color: var(--border-highlight);
+    }
+
+    .skill-category-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .skill-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+    }
+
+    .skill-card-title {
+      font-family: var(--font-display);
+      font-size: 1.28rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .tag-cloud {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .tag-pill {
+      background: var(--surface-glass);
+      border: 1px solid var(--border);
+      padding: 7px 14px;
+      border-radius: 30px;
+      font-size: 0.86rem;
+      font-weight: 500;
+      color: var(--ink);
+      transition: all 0.2s ease;
+    }
+
+    .tag-pill:hover {
+      background: var(--primary-light);
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       SELECTED WORK / LINKEDIN POSTS
+       ========================================================================== */
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .work-card {
+      position: relative;
+      border-radius: 24px;
+      padding: 38px 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 240px;
+      text-decoration: none;
+      overflow: hidden;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+    }
+
+    .work-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .work-card-1 {
+      background: linear-gradient(135deg, #0d3838 0%, #061e20 100%);
+      color: #ffffff;
+      box-shadow: 0 16px 36px -10px rgba(13, 56, 56, 0.4);
+    }
+
+    .work-card-2 {
+      background: linear-gradient(135deg, #0d6e64 0%, #053b36 100%);
+      color: #ffffff;
+      box-shadow: 0 16px 36px -10px rgba(13, 110, 100, 0.4);
+    }
+
+    .work-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(255,255,255,0.12), transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .work-tag {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #dceacb;
+      margin-bottom: 14px;
+    }
+
+    .work-headline {
+      font-family: var(--font-display);
+      font-size: 1.65rem;
+      line-height: 1.25;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .work-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.92rem;
+      font-weight: 600;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .work-link-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s ease;
+    }
+
+    .work-card:hover .work-link-cta {
+      gap: 10px;
+    }
+
+    /* ==========================================================================
+       CONTACT SECTION
+       ========================================================================== */
+    .contact-card-box {
+      background: linear-gradient(135deg, #09171b 0%, #12282e 100%);
+      color: #ffffff;
+      border-radius: 28px;
+      padding: 56px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 48px;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 24px 60px -15px rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .contact-card-box::after {
+      content: '';
+      position: absolute;
+      right: -80px;
+      bottom: -80px;
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, rgba(20, 184, 166, 0.2), transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .contact-left h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      margin: 12px 0 16px;
+      line-height: 1.15;
+    }
+
+    .contact-left p {
+      color: #cbd5e1;
+      font-size: 1.05rem;
+      line-height: 1.68;
+      max-width: 500px;
+    }
+
+    .contact-links-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .contact-action-item {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 16px 22px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #ffffff;
+      font-weight: 600;
+      transition: all 0.25s ease;
+    }
+
+    .contact-action-item:hover {
+      background: rgba(20, 184, 166, 0.18);
+      border-color: rgba(20, 184, 166, 0.5);
+      transform: translateX(4px);
+    }
+
+    .contact-icon-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .copy-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #0f172a;
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      z-index: 2000;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .copy-toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ==========================================================================
+       IMAGE LIGHTBOX MODAL
+       ========================================================================== */
+    .lightbox-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 10, 12, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .lightbox-modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .lightbox-content {
+      position: relative;
+      max-width: 900px;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .lightbox-img {
+      max-width: 100%;
+      max-height: 82vh;
+      border-radius: 20px;
+      box-shadow: 0 25px 70px rgba(0,0,0,0.6);
+      object-fit: contain;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -46px;
+      right: 0;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: white;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: background 0.2s ease;
+    }
+
+    .lightbox-close:hover {
+      background: var(--primary);
+    }
+
+    .lightbox-caption {
+      color: #e2e8f0;
+      font-size: 0.95rem;
+      margin-top: 14px;
+      text-align: center;
+    }
+
+    /* ==========================================================================
+       FOOTER & BACK TO TOP
+       ========================================================================== */
+    .footer {
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
+      color: var(--ink-light);
+      font-size: 0.88rem;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: var(--card-shadow);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(12px);
+      transition: all 0.25s ease;
+      z-index: 90;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .back-to-top:hover {
+      background: var(--primary);
+      color: #ffffff;
+      transform: translateY(-3px);
+    }
+
+    /* ==========================================================================
+       RESPONSIVE DESIGN (MOBILE & TABLET BREAKPOINTS)
+       ========================================================================== */
+    @media (max-width: 980px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 52px;
+      }
+
+      .hero-visual {
+        order: -1;
+      }
+
+      .portrait-card-wrapper {
+        max-width: 360px;
+        margin-inline: auto;
+      }
+
+      .portrait-img-box {
+        height: 420px;
+      }
+
+      .section-header {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .experience-card {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .contact-card-box {
+        grid-template-columns: 1fr;
+        padding: 36px 26px;
+        gap: 32px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .wrap {
+        width: calc(100% - 32px);
+      }
+
+      .brand-tag {
+        display: none;
+      }
+
+      .cta-btn {
+        padding: 8px 14px;
+        font-size: 0.84rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--surface);
+        padding: 24px;
+        border-bottom: 1px solid var(--border);
+        box-shadow: 0 10px 24px rgba(0,0,0,0.1);
+        align-items: flex-start;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .spotlight-grid,
+      .skills-cards-grid,
+      .work-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .portrait-badge-bottom {
+        display: none;
+      }
+
+      .floating-card {
+        padding: 10px 14px;
+        border-radius: 14px;
+      }
+
+      .floating-card-1 {
+        left: -8px;
+        top: 14px;
+      }
+
+      .floating-card-2 {
+        right: -8px;
+        bottom: 16px;
+      }
+
+      .hero-title {
+        font-size: 2.3rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      .floating-card, .glow-orb, .pulse-dot::after {
+        animation: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Scroll Progress Indicator -->
+  <div id="scroll-progress"></div>
+
+  <!-- Ambient Glow Canvas -->
+  <div class="ambient-glow" aria-hidden="true">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+  </div>
+
+  <!-- Sticky Glass Navigation -->
+  <header class="nav-header">
+    <div class="wrap nav-inner">
+      <a href="#top" class="brand-group" aria-label="Divya Parashar Portfolio">
+        <img src="Image.jpeg" alt="Divya Parashar" class="brand-avatar-mini" />
+        <div class="brand-text">
+          <span class="brand-name">Divya Parashar</span>
+          <span class="brand-tag">HR & Talent Acquisition</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Main Navigation">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#work" class="nav-link">Selected Work</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Theme Toggle -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark/Light Mode" title="Toggle Theme">
+          <span id="themeIcon">🌙</span>
+        </button>
+
+        <a href="#contact" class="cta-btn">
+          <span>Get in Touch</span>
+          <span>→</span>
+        </a>
+
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation Menu">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ==========================================================================
+         HERO SECTION: SHOWCASING DIVYA WITH MAX PRO EFFECTS
+         ========================================================================== -->
+    <section class="wrap hero-section">
+      <div class="hero-grid">
+        
+        <!-- Left Column: Compelling Pitch & Credibility -->
+        <div class="hero-content">
+          <div class="status-badge">
+            <span class="pulse-dot"></span>
+            <span>Open to HR & Talent Acquisition Opportunities</span>
+          </div>
+
+          <h1 class="hero-title">
+            Recruiting with care.<br>
+            <span class="gradient-text">People operations</span><br>
+            with clarity.
+          </h1>
+
+          <p class="hero-lead">
+            I’m Divya, an HR and Talent Acquisition professional supporting domestic and U.S. hiring, candidate experience, onboarding, and employee engagement.
+          </p>
+
+          <div class="hero-highlights">
+            <div class="highlight-pill">
+              <span class="icon">⚡</span>
+              <span>Domestic & U.S. Recruitment</span>
+            </div>
+            <div class="highlight-pill">
+              <span class="icon">🤝</span>
+              <span>25+ New Hires Onboarded</span>
+            </div>
+            <div class="highlight-pill">
+              <span class="icon">🎓</span>
+              <span>BCA · AI & Machine Learning</span>
+            </div>
+          </div>
+
+          <div class="hero-actions">
+            <a href="#experience" class="btn btn-primary">
+              <span>Explore My Experience</span>
+              <span>↓</span>
+            </a>
+            <a href="https://www.linkedin.com/in/divya-parashar-ta/" target="_blank" rel="noreferrer" class="btn btn-secondary">
+              <span>Connect on LinkedIn</span>
+              <span>↗</span>
+            </a>
+            <button class="btn btn-copy-email" id="quickCopyEmail" data-email="divyaparashar35@gmail.com" title="Click to copy email">
+              <span>Copy Email</span>
+              <span>📋</span>
+            </button>
+          </div>
+
+          <div class="meta-location">
+            <div class="meta-item">
+              <span>📍</span>
+              <span>Gurugram, India</span>
+            </div>
+            <div class="meta-item">
+              <span>🌐</span>
+              <span>U.S. & Domestic Time Zones</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Stunning Interactive Portrait Showcase -->
+        <div class="hero-visual">
+          <div class="portrait-card-wrapper" id="portraitCard">
+            
+            <!-- Floating Badge Top Left: Role Specialization -->
+            <div class="floating-card floating-card-1">
+              <div class="f-icon-box f-icon-green">
+                <span>💼</span>
+              </div>
+              <div class="f-content">
+                <h4>HR & Operations Associate</h4>
+                <p>Crossing Hurdles</p>
+              </div>
+            </div>
+
+            <!-- Floating Badge Bottom Right: Culture & Philosophy -->
+            <div class="floating-card floating-card-2">
+              <div class="f-icon-box f-icon-amber">
+                <span>✨</span>
+              </div>
+              <div class="f-content">
+                <h4>Candidate-First Approach</h4>
+                <p>Respectful & Clear Sourcing</p>
+              </div>
+            </div>
+
+            <!-- Main Portrait Frame -->
+            <div class="portrait-frame" id="portraitFrame">
+              <button class="expand-photo-btn" id="openLightboxBtn" title="View Full Portrait">
+                <span>⤢</span>
+              </button>
+
+              <div class="portrait-img-box">
+                <img 
+                  src="Image.jpeg" 
+                  alt="Divya Parashar — HR, Talent Acquisition & People Operations Specialist" 
+                  class="hero-portrait"
+                  loading="eager"
+                />
+                <div class="portrait-glass-overlay"></div>
+                <div class="portrait-badge-bottom">
+                  <div class="portrait-badge-name">Divya Parashar</div>
+                  <div class="portrait-badge-role">Talent Acquisition & People Ops</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         ABOUT ME SECTION (SPOTLIGHT INTERACTIVE CARDS)
+         ========================================================================== -->
+    <section id="about" class="section section-border-top">
+      <div class="wrap">
+        <div class="section-header">
+          <div>
+            <div class="kicker">About Me</div>
+            <h2 class="section-title">People first, organized by design.</h2>
+          </div>
+          <p class="section-intro">
+            I combine hands-on recruiting and HR operations with a thoughtful, candidate-centered approach. I enjoy keeping hiring workflows moving smoothly while ensuring each interaction is clear, transparent, and respectful.
+          </p>
+        </div>
+
+        <div class="spotlight-grid">
+          <article class="spotlight-card">
+            <div class="card-content">
+              <div class="stat-badge">Domestic + U.S.</div>
+              <h3 class="stat-title">End-to-End Talent Sourcing</h3>
+              <p class="stat-desc">
+                Recruiting across Product, Design, Technology, and Business functions, including full interview coordination across U.S. time zones.
+              </p>
+            </div>
+          </article>
+
+          <article class="spotlight-card">
+            <div class="card-content">
+              <div class="stat-badge">25+ New Hires</div>
+              <h3 class="stat-title">Onboarding & Induction</h3>
+              <p class="stat-desc">
+                Led end-to-end induction at HCDS Technologies: pre-boarding paperwork, interactive first-day briefings, and structured first-week follow-up.
+              </p>
+            </div>
+          </article>
+
+          <article class="spotlight-card">
+            <div class="card-content">
+              <div class="stat-badge">BCA · AI & ML</div>
+              <h3 class="stat-title">Technical Foundation</h3>
+              <p class="stat-desc">
+                SGT University. My background in computer applications and artificial intelligence directly informs my ability to speak tech with engineering candidates and understand technical requisitions.
+              </p>
+            </div>
+          </article>
+
+          <article class="spotlight-card">
+            <div class="card-content">
+              <div class="stat-badge">How I Work</div>
+              <h3 class="stat-title">Care & Rigor in Practice</h3>
+              <p class="stat-desc">
+                Clear communication, meticulous documentation, rapid candidate feedback loops, and creating a welcoming experience for prospective hires and internal teams alike.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         EXPERIENCE TIMELINE
+         ========================================================================== -->
+    <section id="experience" class="section section-border-top">
+      <div class="wrap">
+        <div class="section-header">
+          <div>
+            <div class="kicker">Where I’ve Contributed</div>
+            <h2 class="section-title">Professional Experience</h2>
+          </div>
+          <p class="section-intro">
+            A practical foundation spanning full-cycle sourcing, interview scheduling across international time zones, and employee onboarding.
+          </p>
+        </div>
+
+        <div class="timeline-container">
+          <!-- Role 1: Crossing Hurdles -->
+          <article class="experience-card spotlight-card">
+            <div class="exp-period">
+              <div class="exp-date">Oct 2025 — Present</div>
+              <div class="exp-type">Full-time · Gurugram</div>
+              <span class="active-pill">● Current Role</span>
+            </div>
+            <div>
+              <h3 class="exp-role-title">HR & Operations Associate</h3>
+              <div class="exp-company">Crossing Hurdles</div>
+              <ul class="exp-list">
+                <li>Drive domestic and U.S. recruitment across key Product, Design, Technology, and Business positions.</li>
+                <li>Source high-caliber talent leveraging LinkedIn Recruiter, LinkedIn Global, Juicebox, Paraform, Naukri, and tailored Boolean / X-Ray search techniques.</li>
+                <li>Evaluate applications, shortlist high-potential profiles, coordinate interviews across U.S. time zones, and maintain continuous candidate communication.</li>
+                <li>Manage clean candidate pipelines and status reports while partnering with hiring teams to calibrate requisitions and accelerate hiring velocity.</li>
+              </ul>
+              <div class="exp-tags">
+                <span class="exp-tag">LinkedIn Recruiter</span>
+                <span class="exp-tag">Juicebox</span>
+                <span class="exp-tag">Paraform</span>
+                <span class="exp-tag">Boolean Search</span>
+                <span class="exp-tag">U.S. Hiring</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Role 2: HCDS Technologies -->
+          <article class="experience-card spotlight-card">
+            <div class="exp-period">
+              <div class="exp-date">Apr 2025 — Sep 2025</div>
+              <div class="exp-type">Internship · Gurugram</div>
+            </div>
+            <div>
+              <h3 class="exp-role-title">People Inclusion & Onboarding Intern</h3>
+              <div class="exp-company">HCDS Technologies</div>
+              <ul class="exp-list">
+                <li>Successfully organized induction and onboarding processes for 25+ new team members, ensuring zero-friction pre-boarding and first-week immersion.</li>
+                <li>Supported trainee recruitment drives via LinkedIn and Unstop through proactive sourcing, resume screening, and scheduling.</li>
+                <li>Maintained accurate employee documentation, onboarding verification, and monthly HR metrics while orchestrating culture-building and inclusion activities.</li>
+              </ul>
+              <div class="exp-tags">
+                <span class="exp-tag">Onboarding & Induction</span>
+                <span class="exp-tag">Unstop Drives</span>
+                <span class="exp-tag">HR Compliance</span>
+                <span class="exp-tag">Employee Engagement</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Role 3: TechKnow Minds -->
+          <article class="experience-card spotlight-card">
+            <div class="exp-period">
+              <div class="exp-date">Jan 2025 — Mar 2025</div>
+              <div class="exp-type">Internship · Remote</div>
+            </div>
+            <div>
+              <h3 class="exp-role-title">Human Resources Intern</h3>
+              <div class="exp-company">TechKnow Minds JS Global Solutions</div>
+              <ul class="exp-list">
+                <li>Assisted in end-to-end recruitment coordination, initial screenings, and new joiner orientation.</li>
+                <li>Organized virtual employee engagement initiatives, conducted market compensation research, and assisted in HR record keeping.</li>
+              </ul>
+              <div class="exp-tags">
+                <span class="exp-tag">Candidate Screening</span>
+                <span class="exp-tag">Virtual Engagement</span>
+                <span class="exp-tag">HR Records</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SKILLS & TOOLS (WITH INTERACTIVE CATEGORY TABS)
+         ========================================================================== -->
+    <section id="skills" class="section section-border-top">
+      <div class="wrap">
+        <div class="section-header">
+          <div>
+            <div class="kicker">What I Bring</div>
+            <h2 class="section-title">Skills & Systems</h2>
+          </div>
+          <p class="section-intro">
+            A blend of modern recruiting methodologies, people operations workflows, and digital platforms to keep hiring pipelines predictable and healthy.
+          </p>
+        </div>
+
+        <!-- Filter tabs for quick exploration -->
+        <div class="skills-filter-nav" role="tablist">
+          <button class="filter-tab active" data-filter="all">All Capabilities</button>
+          <button class="filter-tab" data-filter="ta">Talent Acquisition</button>
+          <button class="filter-tab" data-filter="ops">People Operations</button>
+          <button class="filter-tab" data-filter="tools">Tools & Tech</button>
+          <button class="filter-tab" data-filter="ways">Ways of Working</button>
+        </div>
+
+        <div class="skills-cards-grid">
+          <!-- Category 1: Talent Acquisition -->
+          <article class="skill-card spotlight-card" data-category="ta">
+            <div class="skill-category-header">
+              <div class="skill-icon">🎯</div>
+              <h3 class="skill-card-title">Talent Acquisition</h3>
+            </div>
+            <div class="tag-cloud">
+              <span class="tag-pill">Candidate Sourcing</span>
+              <span class="tag-pill">Resume Screening</span>
+              <span class="tag-pill">Boolean & X-Ray Search</span>
+              <span class="tag-pill">Technical Recruiting</span>
+              <span class="tag-pill">Interview Coordination</span>
+              <span class="tag-pill">Candidate Experience</span>
+              <span class="tag-pill">Pipeline Management</span>
+            </div>
+          </article>
+
+          <!-- Category 2: People Operations -->
+          <article class="skill-card spotlight-card" data-category="ops">
+            <div class="skill-category-header">
+              <div class="skill-icon">🌱</div>
+              <h3 class="skill-card-title">People Operations</h3>
+            </div>
+            <div class="tag-cloud">
+              <span class="tag-pill">Onboarding & Induction</span>
+              <span class="tag-pill">Employee Engagement</span>
+              <span class="tag-pill">HR Documentation</span>
+              <span class="tag-pill">Cross-functional Alignment</span>
+              <span class="tag-pill">Culture Building</span>
+              <span class="tag-pill">New Joiner Surveys</span>
+            </div>
+          </article>
+
+          <!-- Category 3: Recruiting Platforms & Tools -->
+          <article class="skill-card spotlight-card" data-category="tools">
+            <div class="skill-category-header">
+              <div class="skill-icon">⚡</div>
+              <h3 class="skill-card-title">Recruiting Platforms</h3>
+            </div>
+            <div class="tag-cloud">
+              <span class="tag-pill">LinkedIn Recruiter</span>
+              <span class="tag-pill">LinkedIn Global</span>
+              <span class="tag-pill">Juicebox AI</span>
+              <span class="tag-pill">Paraform</span>
+              <span class="tag-pill">Naukri</span>
+              <span class="tag-pill">Unstop</span>
+              <span class="tag-pill">Google Workspace</span>
+            </div>
+          </article>
+
+          <!-- Category 4: Ways of Working -->
+          <article class="skill-card spotlight-card" data-category="ways">
+            <div class="skill-category-header">
+              <div class="skill-icon">💡</div>
+              <h3 class="skill-card-title">Ways of Working</h3>
+            </div>
+            <div class="tag-cloud">
+              <span class="tag-pill">Clear Candidate Communication</span>
+              <span class="tag-pill">Detail-Oriented Records</span>
+              <span class="tag-pill">Timely Follow-Up</span>
+              <span class="tag-pill">Inclusive Mindset</span>
+              <span class="tag-pill">Time-Zone Coordination</span>
+              <span class="tag-pill">Stakeholder Calibration</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SELECTED WORK & THOUGHT LEADERSHIP
+         ========================================================================== -->
+    <section id="work" class="section section-border-top">
+      <div class="wrap">
+        <div class="section-header">
+          <div>
+            <div class="kicker">Thought Leadership</div>
+            <h2 class="section-title">People and culture, in practice.</h2>
+          </div>
+          <p class="section-intro">
+            Selected publications and perspectives on workplace belonging, employee connection, and community recognition in HR.
+          </p>
+        </div>
+
+        <div class="work-grid">
+          <a href="https://www.linkedin.com/feed/update/urn:li:activity:7515241123259256833/" target="_blank" rel="noreferrer" class="work-card work-card-1">
+            <div>
+              <div class="work-tag">Employee Engagement & Culture</div>
+              <h3 class="work-headline">Why shared moments help colleagues feel like a true team.</h3>
+            </div>
+            <div class="work-footer">
+              <span class="work-link-cta">Read Post on LinkedIn ↗</span>
+              <span>LinkedIn Discussion</span>
+            </div>
+          </a>
+
+          <a href="https://www.linkedin.com/feed/update/urn:li:activity:7510207730478084096/" target="_blank" rel="noreferrer" class="work-card work-card-2">
+            <div>
+              <div class="work-tag">HR Community & Recognition</div>
+              <h3 class="work-headline">Celebrating the people behind better workplaces.</h3>
+            </div>
+            <div class="work-footer">
+              <span class="work-link-cta">Read Post on LinkedIn ↗</span>
+              <span>HR Insights</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         CONTACT & INVITATION SECTION
+         ========================================================================== -->
+    <section id="contact" class="section section-border-top">
+      <div class="wrap">
+        <div class="contact-card-box">
+          <div class="contact-left">
+            <div class="kicker" style="color: #a7f3d0;">Let’s Connect</div>
+            <h2>Looking for thoughtful, high-impact HR support?</h2>
+            <p>
+              I’m always open to discussing full-time opportunities in Talent Acquisition, HR coordination, onboarding, and People Operations.
+            </p>
+          </div>
+
+          <div class="contact-links-list">
+            <a href="mailto:divyaparashar35@gmail.com" class="contact-action-item">
+              <div class="contact-icon-label">
+                <span>✉️</span>
+                <span>divyaparashar35@gmail.com</span>
+              </div>
+              <span>↗</span>
+            </a>
+
+            <a href="https://www.linkedin.com/in/divya-parashar-ta/" target="_blank" rel="noreferrer" class="contact-action-item">
+              <div class="contact-icon-label">
+                <span>💼</span>
+                <span>LinkedIn: divya-parashar-ta</span>
+              </div>
+              <span>↗</span>
+            </a>
+
+            <div class="contact-action-item" style="cursor: default; opacity: 0.9;">
+              <div class="contact-icon-label">
+                <span>📍</span>
+                <span>Gurugram, India (Open to Remote / Hybrid)</span>
+              </div>
+              <span>🇮🇳</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="wrap footer-content">
+      <span>© 2026 Divya Parashar — Built with precision & care</span>
+      <span>Talent Acquisition · People Operations · Candidate Experience</span>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to Top" title="Back to top">
+    ↑
+  </button>
+
+  <!-- Toast Notification -->
+  <div class="copy-toast" id="copyToast">
+    <span>✓</span>
+    <span id="copyToastText">Email copied to clipboard!</span>
+  </div>
+
+  <!-- Image Lightbox Modal -->
+  <div class="lightbox-modal" id="lightboxModal" aria-hidden="true" role="dialog">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="closeLightboxBtn" aria-label="Close image preview">✕</button>
+      <img src="Image.jpeg" alt="Divya Parashar High Resolution Portrait" class="lightbox-img" />
+      <div class="lightbox-caption">Divya Parashar — Talent Acquisition & People Operations Professional</div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       VANILLA JAVASCRIPT: MAXIMUM INTERACTIVITY & EFFECTS
+       ========================================================================== */ -->
+  <script>
+    (function () {
+      'use strict';
+
+      // 1. Scroll Progress Bar & Back to Top Toggle
+      const scrollProgressBar = document.getElementById('scroll-progress');
+      const backToTopBtn = document.getElementById('backToTop');
+
+      window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        
+        if (scrollProgressBar) {
+          scrollProgressBar.style.width = scrollPercent + '%';
+        }
+
+        if (backToTopBtn) {
+          if (scrollTop > 400) {
+            backToTopBtn.classList.add('visible');
+          } else {
+            backToTopBtn.classList.remove('visible');
+          }
+        }
+      }, { passive: true });
+
+      if (backToTopBtn) {
+        backToTopBtn.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+
+      // 2. Theme Switcher (Dark / Light Mode)
+      const themeToggle = document.getElementById('themeToggle');
+      const themeIcon = document.getElementById('themeIcon');
+      const htmlEl = document.documentElement;
+
+      const savedTheme = localStorage.getItem('portfolio-theme') || 
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+      function setTheme(theme) {
+        htmlEl.setAttribute('data-theme', theme);
+        localStorage.setItem('portfolio-theme', theme);
+        if (themeIcon) {
+          themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
+        }
+      }
+
+      setTheme(savedTheme);
+
+      if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+          const currentTheme = htmlEl.getAttribute('data-theme') || 'light';
+          setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+        });
+      }
+
+      // 3. Spotlight Card Cursor Glow Tracker (Linear / Vercel effect)
+      const spotlightCards = document.querySelectorAll('.spotlight-card');
+      spotlightCards.forEach(card => {
+        card.addEventListener('mousemove', e => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          card.style.setProperty('--mouse-x', `${x}px`);
+          card.style.setProperty('--mouse-y', `${y}px`);
+        });
+      });
+
+      // 4. Subtle 3D Perspective Tilt for Hero Portrait
+      const portraitCard = document.getElementById('portraitCard');
+      if (portraitCard && window.matchMedia('(min-width: 981px)').matches) {
+        portraitCard.addEventListener('mousemove', (e) => {
+          const rect = portraitCard.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+          const rotateX = (-y / rect.height) * 14;
+          const rotateY = (x / rect.width) * 14;
+          portraitCard.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+        });
+
+        portraitCard.addEventListener('mouseleave', () => {
+          portraitCard.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+        });
+      }
+
+      // 5. Image Lightbox Modal
+      const openLightboxBtn = document.getElementById('openLightboxBtn');
+      const portraitFrame = document.getElementById('portraitFrame');
+      const lightboxModal = document.getElementById('lightboxModal');
+      const closeLightboxBtn = document.getElementById('closeLightboxBtn');
+
+      function openModal() {
+        if (lightboxModal) {
+          lightboxModal.classList.add('active');
+          lightboxModal.setAttribute('aria-hidden', 'false');
+          document.body.style.overflow = 'hidden';
+        }
+      }
+
+      function closeModal() {
+        if (lightboxModal) {
+          lightboxModal.classList.remove('active');
+          lightboxModal.setAttribute('aria-hidden', 'true');
+          document.body.style.overflow = '';
+        }
+      }
+
+      if (openLightboxBtn) openLightboxBtn.addEventListener('click', (e) => { e.stopPropagation(); openModal(); });
+      if (portraitFrame) portraitFrame.addEventListener('click', openModal);
+      if (closeLightboxBtn) closeLightboxBtn.addEventListener('click', closeModal);
+      if (lightboxModal) {
+        lightboxModal.addEventListener('click', (e) => {
+          if (e.target === lightboxModal) closeModal();
+        });
+      }
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightboxModal && lightboxModal.classList.contains('active')) {
+          closeModal();
+        }
+      });
+
+      // 6. Interactive Skills Tab Filtering
+      const filterTabs = document.querySelectorAll('.filter-tab');
+      const skillCards = document.querySelectorAll('.skill-card');
+
+      filterTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          filterTabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+
+          const filter = tab.getAttribute('data-filter');
+          skillCards.forEach(card => {
+            if (filter === 'all' || card.getAttribute('data-category') === filter) {
+              card.style.display = 'block';
+              card.style.animation = 'fadeIn 0.35s ease forwards';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // 7. Click to Copy Email Toast
+      const quickCopyBtn = document.getElementById('quickCopyEmail');
+      const copyToast = document.getElementById('copyToast');
+      let toastTimeout;
+
+      function showToast(message) {
+        if (!copyToast) return;
+        const textEl = document.getElementById('copyToastText');
+        if (textEl) textEl.textContent = message;
+        copyToast.classList.add('show');
+        clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(() => {
+          copyToast.classList.remove('show');
+        }, 3200);
+      }
+
+      function copyToClipboard(text) {
+        if (navigator.clipboard && window.isSecureContext) {
+          return navigator.clipboard.writeText(text);
+        }
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-999999px';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        return new Promise((resolve) => {
+          try {
+            document.execCommand('copy');
+            resolve();
+          } catch (e) {
+            resolve();
+          } finally {
+            textArea.remove();
+          }
+        });
+      }
+
+      if (quickCopyBtn) {
+        quickCopyBtn.addEventListener('click', async () => {
+          const email = quickCopyBtn.getAttribute('data-email');
+          await copyToClipboard(email);
+          showToast('Email copied: ' + email);
+        });
+      }
+
+      // 8. Mobile Navigation Toggle
+      const mobileBtn = document.getElementById('mobileMenuBtn');
+      const navLinks = document.getElementById('navLinks');
+
+      if (mobileBtn && navLinks) {
+        mobileBtn.addEventListener('click', () => {
+          navLinks.classList.toggle('open');
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            navLinks.classList.remove('open');
+          });
+        });
+      }
+
+    })();
+  </script>
+</body>
+</html>
