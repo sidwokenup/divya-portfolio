@@ -1,4 +1,4 @@
-﻿Divya Parashar Portfolio
+Divya Parashar Portfolio
 
 Contents
 - index.html — responsive, self-contained portfolio page (HTML and CSS; no build step or external assets required).
